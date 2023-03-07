@@ -1,4 +1,5 @@
 import ContactForm from "./components/ContactForm";
+import ContractForm2 from "./components/ContractForm2";
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
             <ContactForm></ContactForm>
           </div>
           <div className="col-sm">
-          <p>Function based component</p>
+            <p>Function based component</p>
+            <ContractForm2></ContractForm2>
           </div>
         </div>
       </div>
