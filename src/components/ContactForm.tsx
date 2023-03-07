@@ -1,6 +1,21 @@
 import { Component } from "react";
 
-export class ContactForm extends Component {
+type ContactFormPropsType = {};
+
+type ContactFormStateType = {
+  fullName?: string;
+  email?: string;
+  phone?: string;
+};
+
+export class ContactForm extends Component<
+  ContactFormPropsType,
+  ContactFormStateType
+> {
+  constructor(props: ContactFormPropsType) {
+    super(props);
+    this.changeHandler.bind(this);
+  }
   state = { fullName: "lixian", email: "lixiandai@gmail.com", phone: "323" };
   submitHandler = (evt: React.FormEvent) => {
     evt.preventDefault();
@@ -11,6 +26,22 @@ export class ContactForm extends Component {
     console.log(`name is ${name}, value is ${value}`);
     this.setState({ [name]: value });
   };
+
+  componentDidMount() {
+    console.log("did mount");
+  };
+
+  componentWillUnmount() {
+    console.log("will unmount");
+  };
+
+  shouldComponentUpdate() {
+    return true;
+  }
+
+  componentDidUpdate(): void {
+  }
+
   render() {
     return (
       <>

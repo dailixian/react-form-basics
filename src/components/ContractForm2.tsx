@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function ContractForm2() {
   const [user, setUser] = useState({ fullName: "", email: "", phone: "" });
+
+  useEffect(() => {
+    console.log("use effect with deps user.email state changed get called");
+    return () => {
+      console.log("this is equivalent to willUnmount")  
+    }
+  }, [user.email]);
+
   const changeHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = evt.target;
     console.log(`name is ${name}, value is ${value}`);
